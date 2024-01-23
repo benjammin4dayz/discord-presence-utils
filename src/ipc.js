@@ -1,5 +1,5 @@
 import { EventEmitter } from "events";
-import { uuid } from "util";
+import { uuid } from "./util.js";
 import net from "net";
 
 const OPCodes = {

@@ -1,6 +1,6 @@
 import { EventEmitter } from "events";
-import { getPid, uuid } from "./util";
-import IPCTransport from "./ipc";
+import { getPid, uuid } from "./util.js";
+import IPCTransport from "./ipc.js";
 
 /**
  * The main hub for interacting with Discord RPC
@@ -11,23 +11,19 @@ import IPCTransport from "./ipc";
  *
  * @extends {BaseClient}
  */
-class RPCClientLite extends EventEmitter {
+class RPCClient extends EventEmitter {
   /**
    * Only supports IPC transport
    */
   constructor() {
     super();
+
     this.clientId = null;
 
     this.transport = new IPCTransport(this);
     this.transport.on("message", this._onRpcMessage.bind(this));
 
-    /**
-     * Map of nonces being expected from the transport
-     * @type {Map}
-     * @private
-     */
-    this._expecting = new Map();
+    this._expecting = new Map(); // Map of nonces being expected from the transport
 
     this._connectPromise = undefined;
   }
@@ -82,19 +78,19 @@ class RPCClientLite extends EventEmitter {
       buttons,
       details,
       endTimestamp,
-      instance,
+      instance, // what is this?
+      joinSecret,
       largeImageKey,
       largeImageText,
+      matchSecret,
       partyId,
       partyMax,
       partySize,
       smallImageKey,
       smallImageText,
+      spectateSecret,
       startTimestamp,
       state,
-      // matchSecret,
-      // joinSecret,
-      // spectateSecret,
     },
     pid = getPid()
   ) {
@@ -135,13 +131,13 @@ class RPCClientLite extends EventEmitter {
       }
     }
 
-    // if (matchSecret || joinSecret || spectateSecret) {
-    //   secrets = {
-    //     match: matchSecret,
-    //     join: joinSecret,
-    //     spectate: spectateSecret,
-    //   };
-    // }
+    if (matchSecret || joinSecret || spectateSecret) {
+      secrets = {
+        match: matchSecret,
+        join: joinSecret,
+        spectate: spectateSecret,
+      };
+    }
 
     return this._request("SET_ACTIVITY", {
       pid,
@@ -227,4 +223,5 @@ class RPCClientLite extends EventEmitter {
   }
 }
 
-export default RPCClientLite;
+export default RPCClient;
+export { RPCClient };
