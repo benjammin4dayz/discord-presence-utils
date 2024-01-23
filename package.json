@@ -1,0 +1,11 @@
+{
+  "name": "discord-rpc-lite",
+  "version": "1.0.0",
+  "description": "A stripped-down version of the original DiscordJS RPC client; mainly for managing Rich Presence.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "benjammin4dayz",
+  "license": "MIT"
+}
