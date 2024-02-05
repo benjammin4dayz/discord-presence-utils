@@ -180,3 +180,4 @@ class ProcMon extends EventEmitter {
 }
 
 export default ProcMon;
+export { ProcMon };
