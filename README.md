@@ -2,10 +2,11 @@
 
 Discord Presence Utils is a collection of easy-to-use modules designed to facilitate the management of Discord Rich Presence from your Node application.
 
-| Docs                                | Module    | Description                                                  |
-| ----------------------------------- | --------- | ------------------------------------------------------------ |
-| [\[ X \]](./doc/discord-rpc.md)     | RPCClient | Simple Discord RPC for setting Rich Presence on Discord.     |
-| [\[ X \]](./doc/process-monitor.md) | ProcMon   | Basic process monitor to detect when a game starts or stops. |
+| Docs                                | Module        | Description                                                     |
+| ----------------------------------- | ------------- | --------------------------------------------------------------- |
+| [\[ X \]](./doc/discord-rpc.md)     | RPCClient     | Simple Discord RPC for setting Rich Presence on Discord.        |
+| [\[ X \]](./doc/process-monitor.md) | ProcMon       | Basic process monitor to detect when a game starts or stops.    |
+| [\[ X \]](./doc/card-generator.md)  | cardGenerator | Create HTML to preview a given presence or display in your docs |
 
 ## Usage
 
